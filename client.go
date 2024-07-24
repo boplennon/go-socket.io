@@ -65,7 +65,7 @@ func fmtNS(ns string) string {
 
 func (c *Client) Connect() error {
 	dialer := engineio.Dialer{
-		Transports: []transport.Transport{polling.Default},
+		Transports: c.opts,
 	}
 
 	enginioCon, err := dialer.Dial(c.url, nil)
